@@ -45,20 +45,160 @@
 
 
 
-<div class="mygrid-columns">
-  <div class="mygrid-item"><img src="media/bestune-brochures-1.jpg" alt="Imagen 1" class="mygrid-popup"></div>
-  <div class="mygrid-item"><img src="media/tiburoncin-social-media.jpg" alt="Imagen 2" class="mygrid-popup"></div>
-  <div class="mygrid-item"><img src="media/proyektil-social-media-.jpg" alt="Imagen 3" class="mygrid-popup"></div>
-  <div class="mygrid-item"><img src="media/one-up-social-media.jpg" alt="Imagen 4" class="mygrid-popup"></div>
-</div>
 
-<!-- Lightbox -->
-<div id="mygrid-lightbox" style="display:none;">
-  <span id="mygrid-close">&times;</span>
-  <img id="mygrid-img" src="">
-  <div id="mygrid-prev">&#10094;</div>
-  <div id="mygrid-next">&#10095;</div>
-</div>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Grid con Lightbox + Password light</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tu hoja de estilos global ya la tienes; no agrego CSS aquí -->
+</head>
+<body>
+
+  <!-- GRID -->
+  <div class="mygrid-columns">
+    <div class="mygrid-item">
+      <img class="mygrid-popup gate locked"
+           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+           data-src="media/bestune-brochures-1.jpg"
+           alt="Imagen 1">
+    </div>
+    <div class="mygrid-item">
+      <img class="mygrid-popup gate locked"
+           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+           data-src="media/tiburoncin-social-media.jpg"
+           alt="Imagen 2">
+    </div>
+    <div class="mygrid-item">
+      <img class="mygrid-popup gate locked"
+           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+           data-src="media/proyektil-social-media-.jpg"
+           alt="Imagen 3">
+    </div>
+    <div class="mygrid-item">
+      <img class="mygrid-popup gate locked"
+           src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+           data-src="media/one-up-social-media.jpg"
+           alt="Imagen 4">
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="mygrid-lightbox" style="display:none;">
+    <span id="mygrid-close">&times;</span>
+    <img id="mygrid-img" src="" alt="">
+    <div id="mygrid-prev">&#10094;</div>
+    <div id="mygrid-next">&#10095;</div>
+  </div>
+
+  <!-- JS: Password “ligero” para desbloquear imágenes -->
+  <script>
+  (function(){
+    const gated = document.querySelectorAll('img.gate');
+    if (!gated.length) return;
+
+    // Overlay de contraseña
+    const overlay = document.createElement('div');
+    overlay.className = 'pw-overlay';
+    overlay.innerHTML = `
+      <div class="pw-card">
+        <h3>Acceso con contraseña</h3>
+        <div class="pw-row">
+          <input class="pw-input" id="pw-in" type="password" placeholder="Contraseña">
+          <button class="pw-btn" id="pw-ok">Entrar</button>
+        </div>
+        <div class="pw-error" id="pw-err"></div>
+      </div>`;
+    document.body.appendChild(overlay);
+
+    const $ = s => overlay.querySelector(s);
+    const input = $('#pw-in');
+    const btn   = $('#pw-ok');
+    const err   = $('#pw-err');
+
+    const PASSWORD = 'TF230601?'; // <--- cámbiala
+
+    function unlock(){
+      err.textContent = '';
+      if ((input.value || '') !== PASSWORD){
+        err.textContent = 'Contraseña incorrecta.';
+        input.focus();
+        return;
+      }
+      // Cargar las imágenes reales
+      document.querySelectorAll('img.gate').forEach(img => {
+        const real = img.getAttribute('data-src');
+        if (real) img.src = real;
+        img.classList.remove('locked');
+      });
+      overlay.remove();
+    }
+
+    btn.addEventListener('click', unlock);
+    input.addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+    setTimeout(()=>input.focus(), 30);
+  })();
+  </script>
+
+  <!-- JS: Lightbox básico (clic en miniatura abre, con prev/next y teclado) -->
+  <script>
+  (function(){
+    const thumbs = Array.from(document.querySelectorAll('.mygrid-popup'));
+    const lb = document.getElementById('mygrid-lightbox');
+    const lbImg = document.getElementById('mygrid-img');
+    const btnClose = document.getElementById('mygrid-close');
+    const btnPrev = document.getElementById('mygrid-prev');
+    const btnNext = document.getElementById('mygrid-next');
+
+    let idx = 0;
+
+    function isPlaceholder(src){
+      return src && src.startsWith('data:image/gif;base64,R0lGODlhAQABAIA');
+    }
+
+    function openAt(i){
+      idx = (i + thumbs.length) % thumbs.length;
+      const src = thumbs[idx].getAttribute('src');
+      if (!src || isPlaceholder(src)) return; // si aún no está desbloqueada, no abre
+      lbImg.src = src;
+      lb.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLB(){
+      lb.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function next(){ openAt(idx + 1); }
+    function prev(){ openAt(idx - 1); }
+
+    thumbs.forEach((img, i) => {
+      img.addEventListener('click', () => openAt(i));
+      img.style.cursor = 'zoom-in';
+    });
+
+    btnClose.addEventListener('click', closeLB);
+    btnNext.addEventListener('click', next);
+    btnPrev.addEventListener('click', prev);
+
+    lb.addEventListener('click', (e) => {
+      // cierra si haces click fuera de la imagen
+      if (e.target === lb) closeLB();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (lb.style.display !== 'block') return;
+      if (e.key === 'Escape') closeLB();
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
+    });
+  })();
+  </script>
+
+</body>
+</html>
 
 
 

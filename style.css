@@ -1420,12 +1420,30 @@ body.modal-open { overflow: hidden; height: 100%; }
 
 
 
-/* =========================================
-= LO QUE SE QUITÓ (para que sepas)
-  - Se eliminaron ambos bloques de DESKTOP (>=1025px) que:
-    * cambiaban display de .modal a grid/flex
-    * añadían padding 4vh 6vw al .modal (la “respiración”)
-    * limitaban/forzaban width de .modal-content en desktop
-  - Se eliminó el primer bloque duplicado de MOBILE del modal
-    (el que ponía width: min(92vw, 420px))
-========================================= */
+
+
+
+/* Overlay y tarjetita del password */
+.pw-overlay {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  background: rgba(0,0,0,.55); z-index: 99999; backdrop-filter: blur(2px);
+}
+.pw-card { background:#111; color:#fff; padding:20px; border-radius:14px; width:min(92%,360px); box-shadow:0 10px 30px rgba(0,0,0,.4);}
+.pw-card h3{margin:0 0 10px;font:600 18px/1.2 system-ui, sans-serif;}
+.pw-row{display:flex;gap:8px}
+.pw-input{flex:1;padding:10px;border-radius:10px;border:1px solid #2a2a2a;background:#181818;color:#fff}
+.pw-btn{padding:10px 14px;border:0;border-radius:10px;cursor:pointer}
+.pw-error{color:#ff8a8a;font-size:12px;margin-top:8px;min-height:16px}
+
+/* Efecto borroso mientras están bloqueadas (opcional) */
+img.gate.locked { filter: blur(18px) brightness(.8); }
+
+
+
+
+
+
+
+
+
+
