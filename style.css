@@ -1030,6 +1030,12 @@ footer {
 
 
 
+
+/* ===== AQUI EMPIEZA TODO EL RESPONSIVE ===== */
+
+
+
+
 /* ===== Off-canvas solo móvil/tablet ===== */
 @media (max-width: 1023px){
   .nav-container{ display:flex; align-items:center; position:relative; z-index:1002; }
@@ -1167,3 +1173,259 @@ footer {
     display: none !important; 
   }
 }
+
+
+
+
+
+@media (max-width: 768px) {
+  #about {
+    text-align: center; /* Asegura que todo lo dentro de la sección quede centrado */
+  }
+
+  #about h2 {
+    text-align: center; /* Centra el título "Sobre mi" */
+    width: 100%;
+  }
+
+  #about .about-content {
+    flex-direction: column;   /* Apila en vertical */
+    align-items: center;      /* Centra horizontalmente */
+    text-align: center;       /* Centra el texto */
+  }
+
+  #about .about-text {
+    text-align: center;
+  }
+
+  #about .about-text p {
+    text-align: center;
+  }
+
+  #about .software {
+    display: flex;
+    flex-wrap: wrap;          /* Permite que los íconos salten de línea si no caben */
+    justify-content: center;  /* Centra los íconos */
+    gap: 15px;                /* Espacio entre íconos */
+    width: 100%;
+  }
+
+  #about .software-item {
+    text-align: center;       /* Centra la etiqueta bajo el ícono */
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  #about .software {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 20px;                            /* espacio entre íconos */
+    justify-items: center;                /* centra cada ícono */
+    width: 100%;
+  }
+
+  #about .software-item {
+    text-align: center; /* centra texto bajo ícono */
+  }
+}
+
+
+
+
+/* Mostrar cuando aria-hidden="false" */
+.modal[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Overlay negro a pantalla completa */
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+/* Caja del modal */
+.modal .modal-content {
+  position: relative;
+  z-index: 1;                    /* sobre el overlay */
+  background: #141414;           /* ajusta a tu tema */
+  color: #eaeaea;
+  border-radius: 16px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,.45);
+}
+
+/* Botón cerrar */
+.modal .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  line-height: 1;
+  background: transparent;
+  border: 0;
+  color: #eaeaea;
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Asegura proporción del media */
+.modal .carousel-inner img,
+.modal .carousel-inner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Flechas del carrusel */
+.modal .prev,
+.modal .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,.55);
+  border: 0;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.modal .prev { left: 10px; }
+.modal .next { right: 10px; }
+
+/* Texto del modal */
+.modal .modal-text {
+  padding: 20px 24px;
+}
+.modal .modal-text h3 { margin: 0 0 6px; }
+.modal .modal-text p  { margin: 0 0 10px; }
+
+/* Link */
+.modal .modal-link-wrapper {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+}
+
+/* Bloquea scroll del body cuando el modal está abierto (si tu JS añade la clase) */
+body.modal-open { overflow: hidden; height: 100%; }
+
+
+
+/* =========================================
+= MODAL: MOBILE (lo que sí sirvió y te gustó)
+  * Dejamos SOLO este bloque de mobile
+  * Se elimina el otro duplicado de mobile (min(92vw, 420px))
+========================================= */
+@media (max-width: 768px) {
+  .modal {                      /* overlay a pantalla completa, centrado ya por flex */
+    inset: 0;
+  }
+
+  .modal .modal-content {
+    width: 95vw !important;      /* más ancho pero con margen */
+    max-width: 500px !important; /* tope para no verse exagerado */
+    max-height: 85vh !important; /* un poquito más alto */
+    border-radius: 16px;
+  }
+
+  .modal .modal-text {
+    padding: 16px;
+    text-align: center;          /* centrado de textos */
+  }
+
+  /* Flechas más compactas en móvil */
+  .modal .prev,
+  .modal .next {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+
+
+/* =========================================
+= CONTACTO: MOBILE (50vh + centrado)
+  * Mantengo los dos bloques que ya te funcionaban
+========================================= */
+
+/* Fuerza a que NO sea 100% de alto y centra contenido */
+@media (max-width: 768px) {
+  body .full-screen-container-contact.full-screen-container-contact {
+    height: auto !important;
+    min-height: 50vh !important;     /* ~mitad del viewport */
+    max-height: none !important;
+
+    /* logical props */
+    block-size: auto !important;
+    min-block-size: 50vh !important;
+
+    /* Centrado del contenido */
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 20px;                    /* opcional */
+  }
+
+  /* Asegura que los bloques internos también queden centrados */
+  .full-screen-container-contact .main-content,
+  .full-screen-container-contact .main-title,
+  .full-screen-container-contact .social-links {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Centrar los íconos sociales (div interior con flex) */
+  .full-screen-container-contact .social-links > div {
+    justify-content: center !important;
+  }
+}
+
+/* Limpia márgenes/paddings y centra íconos sociales en mobile */
+@media (max-width: 768px) {
+  .full-screen-container-contact {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .full-screen-container-contact .social-links {
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .full-screen-container-contact .social-links > div {
+    justify-content: center !important;
+  }
+}
+
+
+
+/* =========================================
+= LO QUE SE QUITÓ (para que sepas)
+  - Se eliminaron ambos bloques de DESKTOP (>=1025px) que:
+    * cambiaban display de .modal a grid/flex
+    * añadían padding 4vh 6vw al .modal (la “respiración”)
+    * limitaban/forzaban width de .modal-content en desktop
+  - Se eliminó el primer bloque duplicado de MOBILE del modal
+    (el que ponía width: min(92vw, 420px))
+========================================= */

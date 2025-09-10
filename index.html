@@ -70,7 +70,6 @@
                 Me apasionan los retos, las nuevas experiencias y transformar ideas
                 en soluciones visuales con propósito.<br />
             </p>
-<a href="/portafolio-web.html" class="cta-button-2">Descargar CV</a>
             <div class="software">
                 <div class="software-item">
                     <span class="software-icon">
@@ -223,41 +222,43 @@
 <section class=" proyectos-grid">
             <div class="proyecto-card">
                 <div class="proyecto-placeholder">
-                    <img class="proyecto-placeholder" src="media/ficade-mockup-portafolio-3.jpg">
+                    <img class="proyecto-placeholder" src="media/grillup-mockup-portafolio-3.jpg">
                 </div>
                 <div class="proyecto-content">
-                <h3>Grupo FICADE</h3>
-                <p>Venta de departamentos en CDMX.</p>
+                <h3>Grillup</h3>
+                <p>Suplementos alimenticios.</p>
                 <div class="proyecto-tech">
-                    <span class="tech-tag">Rediseño</span>
+                    <span class="tech-tag">E-commerce</span>
                     <span class="tech-tag">Diseño web</span>
-                    <span class="tech-tag">Optimización UX</span>
+                     <span class="tech-tag">Wordpress</span>
                 </div>
                 <button class="btn-popup proyecto-link"
                 data-modal="modal1"
-                data-title="Grupo FICADE"
-                data-desc="Rediseño y optimización de navegación"
-                data-images="media/ficade-mockup-portafolio-3.jpg"
+                data-title="Grillup"
+                data-desc="Diseño, desarrollo y maquetación web"
+                data-images="media/grillup-mockup-portafolio-3.jpg, media/grillup-telefono-mockup.jpg"
                 data-link="https:https://grupoficade.com/"
                 >Ver proyecto →</button>
                 </div>
             </div>
             <div class="proyecto-card">
                 <div class="proyecto-placeholder">
-                    <img class="proyecto-placeholder" src="media/one-up-social-media.jpg">
+                    <img class="proyecto-placeholder" src="media/micronovax-mockup-portafolio-3.jpg">
                 </div>
                 <div class="proyecto-content">
-                <h3>Banorte One Up</h3>
-                <p>Diseño de artes para plataforma de Banorte One Up.</p>
+                <h3>Micronovax</h3>
+                <p>Productos de cuidado agricola.</p>
                 <div class="proyecto-tech">
-                    <span class="tech-tag">Diseño de redes sociales</span>
-                    <span class="tech-tag">Diseño gráfico</span>
+                    <span class="tech-tag">E-commerce</span>
+                    <span class="tech-tag">Diseño web</span>
+                     <span class="tech-tag">Wordpress</span>
                 </div>
                 <button class="btn-popup proyecto-link"
                 data-modal="modal2"
-                data-title="Banorte One Up"
-                data-desc="Diseño de artes para plataforma Banorte"
-                data-images="media/one-up-social-media.jpg"
+                data-title="Micronovax"
+                data-desc="Diseño, desarrollo y maquetación web"
+                data-images="media/micronovax-mockup-portafolio-3.jpg, media/micronovax-telefono-mockup.jpg"
+                 data-link="https:https://grupoficade.com/"
                 >Ver proyecto →</button>
                 </div>
             </div>
@@ -277,7 +278,7 @@
                 data-modal="modal3"
                 data-title="Grupo Sotres"
                 data-desc="Diseño, desarrollo y maquetación de sitio web"
-                data-images="media/sotres-mockup-portafolio-3.jpg"
+                data-images="media/sotres-mockup-portafolio-3.jpg, media/sotres-telefono-mockup.jpg"
                 data-link="https://gruposotres.com/"
                 >Ver proyecto →</button>
                 </div>
@@ -298,11 +299,10 @@
                 data-modal="modal4"
                 data-title="ARMI México"
                 data-desc="Diseño, desarrollo y maquetación de sitio web"
-                data-images="media/armi-mockup-portafolio-3.jpg"
+                data-images="media/armi-mockup-portafolio-3.jpg, media/armi-telefono-mockup.jpg"
                 data-link="https://armimexico.com/"
                 >Ver proyecto →</button>
                 </div>
-            </div>
     </section>
 
 
@@ -315,15 +315,22 @@
     </footer>
 </div>
 
+
+
+
+
+
 <!-- ✅ Modal 1 -->
-<div id="modal1" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
+<!-- ====== modal1.html ====== -->
+<div id="modal1" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- cambié a button para mejor accesibilidad -->
+    <button class="close-btn" aria-label="Cerrar">&times;</button>
 
     <div class="carousel-wrapper">
       <div class="carousel-inner"></div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+      <button class="prev" aria-label="Anterior">&#10094;</button>
+      <button class="next" aria-label="Siguiente">&#10095;</button>
     </div>
 
     <div class="modal-text">
@@ -331,7 +338,7 @@
       <p id="modal-description">Descripción</p>
       <div class="modal-link-wrapper" style="display:none;">
         <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link">Abrir enlace</a>
+        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
       </div>
     </div>
   </div>
@@ -340,15 +347,17 @@
 
 
 
+
 <!-- ✅ Modal 2 -->
-<div id="modal2" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
+<div id="modal2" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- cambié a button para mejor accesibilidad -->
+    <button class="close-btn" aria-label="Cerrar">&times;</button>
 
     <div class="carousel-wrapper">
       <div class="carousel-inner"></div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+      <button class="prev" aria-label="Anterior">&#10094;</button>
+      <button class="next" aria-label="Siguiente">&#10095;</button>
     </div>
 
     <div class="modal-text">
@@ -356,7 +365,7 @@
       <p id="modal-description">Descripción</p>
       <div class="modal-link-wrapper" style="display:none;">
         <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link">Abrir enlace</a>
+        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
       </div>
     </div>
   </div>
@@ -365,14 +374,15 @@
 
 
 <!-- ✅ Modal 3 -->
-<div id="modal3" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
+<div id="modal3" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- cambié a button para mejor accesibilidad -->
+    <button class="close-btn" aria-label="Cerrar">&times;</button>
 
     <div class="carousel-wrapper">
       <div class="carousel-inner"></div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+      <button class="prev" aria-label="Anterior">&#10094;</button>
+      <button class="next" aria-label="Siguiente">&#10095;</button>
     </div>
 
     <div class="modal-text">
@@ -380,7 +390,7 @@
       <p id="modal-description">Descripción</p>
       <div class="modal-link-wrapper" style="display:none;">
         <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link">Abrir enlace</a>
+        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
       </div>
     </div>
   </div>
@@ -389,14 +399,15 @@
 
 
 <!-- ✅ Modal 4 -->
-<div id="modal4" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
+<div id="modal4" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- cambié a button para mejor accesibilidad -->
+    <button class="close-btn" aria-label="Cerrar">&times;</button>
 
     <div class="carousel-wrapper">
       <div class="carousel-inner"></div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
+      <button class="prev" aria-label="Anterior">&#10094;</button>
+      <button class="next" aria-label="Siguiente">&#10095;</button>
     </div>
 
     <div class="modal-text">
@@ -404,59 +415,11 @@
       <p id="modal-description">Descripción</p>
       <div class="modal-link-wrapper" style="display:none;">
         <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link">Abrir enlace</a>
+        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
       </div>
     </div>
   </div>
 </div>
-
-
-
-<!-- ✅ Modal 5 -->
-<div id="modal5" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-inner"></div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-
-    <div class="modal-text">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-description">Descripción</p>
-      <div class="modal-link-wrapper" style="display:none;">
-        <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link">Abrir enlace</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ✅ Modal 6 -->
-<div id="modal6" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close-btn">&times;</span>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-inner"></div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-
-    <div class="modal-text">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-description">Descripción</p>
-      <div class="modal-link-wrapper" style="display:none;">
-        <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link">Abrir enlace</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 
 
 

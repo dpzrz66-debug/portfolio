@@ -14,19 +14,35 @@
 </head>
 
 <body>
-  <nav>
-        <div class="nav-container">
-            <div class="logo">David Peñaloza.</div>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/portafolio-web.html">Diseño web</a></li>
-                <li><a href="/logofolio.html">Logofolio</a></li>
-                <li><a href="/rss.html">RSS</a></li>
-                <li><a href="/deliriomedia.html">Delirio media</a></li>
-            </ul>
-            <a href="/contacto.html" class="cta-button">Contáctame</a>
-        </div>
-    </nav>
+<nav class="nav" data-js="nav">
+  <div class="nav-container">
+    <div class="logo">David Peñaloza.</div>
+
+    <!-- Toggle 100% CSS -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden>
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">☰</label>
+
+    <!-- Fondo (clic para cerrar) -->
+    <label for="nav-toggle" class="nav-backdrop"></label>
+
+    <!-- Drawer -->
+    <div class="nav-drawer">
+      <ul id="primary-menu" class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/portafolio-web.html">Diseño web</a></li>
+        <li><a href="/logofolio.html">Logofolio</a></li>
+        <li><a href="/rss.html">RSS</a></li>
+        <li><a href="/deliriomedia.html">Delirio media</a></li>
+
+        <!-- ✅ Enlace solo para mobile -->
+        <li class="cta-mobile"><a href="/contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- ✅ Botón solo para desktop -->
+      <a href="/contacto.html" class="cta-button">Contáctame</a>
+    </div>
+  </div>
+</nav>
 
 <!--aquí andan las cards de proyectos -->
 <section class=" proyectos-grid">
