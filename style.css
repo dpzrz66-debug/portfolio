@@ -941,3 +941,229 @@ footer {
 #mygrid-next { right: 30px; }
 
 #mygrid-prev:hover, #mygrid-next:hover { background: rgba(255,255,255,0.2); }
+
+
+
+
+
+
+
+
+
+/* Full width */
+.marquee-bleed{
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* Vars y base */
+:root{
+  --marquee-gap: 6rem;
+  --marquee-size: 2rem;
+  --marquee-weight: 400;
+}
+
+.marquee{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #194BBE; /* fondo */
+  color: #fff;         /* texto */
+  padding: 3em 3em 3em 3em;
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+/* Pistas */
+.marquee__track{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);  /* centra vertical */
+  display: inline-flex;
+  gap: var(--marquee-gap);
+  white-space: nowrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 100%;              /* evita huecos si hay poco contenido */
+  will-change: transform;
+  animation: marquee-a var(--speed, 10s) linear infinite;
+}
+
+.marquee__track--dup{
+  /* la duplicada arranca fuera a la derecha y entra */
+  animation: marquee-b var(--speed, 10s) linear infinite;
+}
+
+.marquee__item{
+  font-size: var(--marquee-size);
+  font-weight: var(--marquee-weight);
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: .02em;
+}
+
+/* Una pista va de 0 → -100% */
+@keyframes marquee-a{
+  from { transform: translate(-0%, -50%); }
+  to   { transform: translate(-100%, -50%); }
+}
+
+/* La otra va de 100% → 0 (engancha a la primera) */
+@keyframes marquee-b{
+  from { transform: translate(100%, -50%); }
+  to   { transform: translate(0%, -50%); }
+}
+
+/* Respeta reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .marquee__track,
+  .marquee__track--dup{ animation: none; }
+}
+
+
+
+
+
+
+
+/* ===== Off-canvas solo móvil/tablet ===== */
+@media (max-width: 1023px){
+  .nav-container{ display:flex; align-items:center; position:relative; z-index:1002; }
+  .nav-toggle-label{
+    display:inline-block; margin-left:auto; font-size:1.8rem; line-height:1;
+    cursor:pointer; user-select:none; z-index:1002;
+  }
+
+  /* Backdrop azul/negro translúcido */
+  .nav-backdrop{
+    position:fixed; inset:0; background: rgba(10, 30, 64, .55); /* azul oscuro */
+    /* Si prefieres negro: background: rgba(0,0,0,.6); */
+    opacity:0; pointer-events:none; transition: opacity .28s ease; z-index:1000;
+  }
+
+  /* Drawer lateral derecho */
+  .nav-drawer{
+    position:fixed; top:0; right:0; height:100vh; width:min(85vw, 360px);
+    background:#194BBE; /* azul muy oscuro; usa #000 si lo quieres negro */
+    backdrop-filter: blur(6px);
+    box-shadow: -12px 0 40px rgba(0,0,0,.35);
+    transform: translateX(100%); transition: transform .32s ease;
+    padding: 1.25rem; display:flex; flex-direction:column; gap:1rem; z-index:1001;
+  }
+
+  /* Estilos de lista en drawer */
+  .nav-drawer .nav-links{ display:flex; flex-direction:column; gap:.75rem; }
+  .nav-drawer .nav-links a{ text-decoration:none; color:#fff; }
+  .nav-drawer .cta-button{ display:block; margin-top:.5rem; }
+
+  /* Oculta cualquier nav horizontal previo en móvil (por si existía) */
+  .nav .nav-links:not(.nav-drawer .nav-links){ display:none; }
+
+  /* Estado ABIERTO (checkbox checked) */
+  .nav-toggle-input:checked ~ .nav-backdrop{
+    opacity:1; pointer-events:auto;
+  }
+  .nav-toggle-input:checked ~ .nav-drawer{
+    transform: translateX(0%);
+  }
+}
+
+/* ===== Desktop: vuelve a layout normal (drawer se “desactiva”) ===== */
+@media (min-width: 1024px){
+  .nav-toggle-label, .nav-backdrop{ display:none; }
+  .nav-drawer{
+    position:static; height:auto; width:auto; transform:none; background:transparent;
+    box-shadow:none; padding:0; flex-direction:row; gap:1.25rem;
+  }
+  .nav-drawer .nav-links{ flex-direction:row; gap:1rem; }
+  .nav-drawer .nav-links a{ color:inherit; }
+  .nav-drawer .cta-button{ margin-top:0; }
+}
+
+
+
+
+
+/* ===== DESKTOP FIX (>=1024px) ===== */
+@media (min-width: 1024px){
+  /* contenedor del header alineado y sin rarezas */
+  .nav-container{
+    display:flex;
+    align-items:center;
+    gap: 1.25rem;
+    position:relative;
+    z-index: 10;
+  }
+
+  /* logo a la izquierda */
+  .logo{ margin-right:auto; }
+
+  /* oculta overlay y hamburguesa en desktop */
+  .nav-toggle-label{ display:none !important; }
+  .nav-backdrop{ display:none !important; }
+
+  /* el drawer se convierte en contenedor normal, sin fondo ni sombra */
+  .nav-drawer{
+    position: static !important;
+    transform: none !important;
+    height: auto !important;
+    width: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    display:flex !important;
+    align-items:center;
+    gap: 1rem;
+  }
+
+  /* links en fila, sin margen extra */
+  .nav-drawer .nav-links{
+    display:flex !important;
+    flex-direction: row !important;
+    gap: 1.25rem;
+    margin: 0;
+  }
+  .nav-drawer .nav-links li{ list-style: none; }
+  .nav-drawer .nav-links a{ color: inherit; text-decoration: none; }
+
+  /* CTA a la derecha con un pequeño offset */
+  .nav-drawer .cta-button{
+    margin-left: 1rem;
+    display: inline-block;
+  }
+}
+
+
+
+
+/* ===== MOBILE/TABLET (<=1023px) ===== */
+@media (max-width: 1023px){
+  /* Oculta el botón grande dentro del drawer móvil */
+  .nav-drawer .cta-button{ 
+    display: none !important; 
+  }
+  /* Muestra el item de menú “Contacto” solo en mobile */
+  .nav-drawer .cta-mobile{ 
+    display: block !important; 
+  }
+  .nav-drawer .cta-mobile a{
+    /* opcional: que se vea como link normal del menú */
+    text-decoration: none;
+    display: block;
+  }
+}
+
+/* ===== DESKTOP (>=1024px) ===== */
+@media (min-width: 1024px){
+  /* En desktop, regresa el botón y oculta el item extra */
+  .nav-drawer .cta-button{ 
+    display: inline-block !important; 
+  }
+  .nav-drawer .cta-mobile{ 
+    display: none !important; 
+  }
+}

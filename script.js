@@ -198,3 +198,105 @@ mygridNext.addEventListener('click', () => {
   mygridIndex = (mygridIndex + 1) % mygridImages.length;
   mygridImg.src = mygridImages[mygridIndex].src;
 });
+
+
+
+
+
+
+
+
+
+(function(){
+  const nav = document.querySelector('header nav') || document.querySelector('.site-header nav') || document.querySelector('nav');
+  const header = document.querySelector('header, .site-header');
+  if(!nav || !header) return;
+
+  // Evita duplicar el botón si ya existe
+  if (!document.querySelector('.nav-toggle')){
+    if(!nav.id) nav.id = 'site-nav';
+    const btn = document.createElement('button');
+    btn.className = 'nav-toggle';
+    btn.setAttribute('aria-controls', nav.id);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Abrir menú');
+    btn.textContent = '☰';
+
+    const container = header.querySelector('.container') || header;
+    container.appendChild(btn);
+
+    function syncTop(){
+      // Coloca el panel justo debajo del header, sin hardcodear alturas
+      const h = header.getBoundingClientRect().height;
+      nav.style.top = h + 'px';
+    }
+    function inheritBg(){
+      // Toma el mismo fondo del header para que no “desaparezca”
+      const cs = getComputedStyle(header);
+      const bg = cs.background || cs.backgroundColor || '';
+      if(bg) nav.style.background = bg;
+    }
+    function openMenu(){
+      nav.classList.add('is-open');
+      btn.setAttribute('aria-expanded','true');
+      document.body.classList.add('menu-open');
+      syncTop(); inheritBg();
+    }
+    function closeMenu(){
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('menu-open');
+    }
+
+    btn.addEventListener('click', ()=>{
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      expanded ? closeMenu() : openMenu();
+    });
+
+    // Cierra con Escape
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeMenu(); });
+
+    // Cierra al click fuera
+    document.addEventListener('click', (e)=>{
+      if(!nav.classList.contains('is-open')) return;
+      const inside = nav.contains(e.target) || btn.contains(e.target);
+      if(!inside) closeMenu();
+    });
+
+    // Cierra al navegar
+    nav.addEventListener('click', (e)=>{
+      const a = e.target.closest('a');
+      if(a) closeMenu();
+    });
+
+    // Ajusta en resize/scroll inicial
+    window.addEventListener('resize', syncTop, {passive:true});
+    window.addEventListener('load', ()=>{ syncTop(); inheritBg(); });
+  }
+})();
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  const nav = document.querySelector('nav[data-js="nav"]');
+  const btn = nav?.querySelector('.nav-toggle');
+  const menu = nav?.querySelector('#primary-menu');
+
+  if(!nav || !btn || !menu) return;
+
+  btn.addEventListener('click', function(){
+    const open = nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', String(open));
+  });
+
+  // Cierra al tocar un link (móvil)
+  menu.addEventListener('click', function(e){
+    if(e.target.closest('a')){
+      nav.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  });
+});

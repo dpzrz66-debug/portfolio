@@ -10,23 +10,42 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>David Peñaloza - Portafolio</title>
 </head>
-
 <body>
-    <nav>
-        <div class="nav-container">
-            <div class="logo">David Peñaloza.</div>
-            <ul class="nav-links">
-                <li><a href="/index.html">Inicio</a></li>
-                <li><a href="/portafolio-web.html">Diseño web</a></li>
-                <li><a href="/logofolio.html">Logofolio</a></li>
-                <li><a href="/rss.html">RSS</a></li>
-                <li><a href="/deliriomedia.html">Delirio media</a></li>
-            </ul>
-            <a href="/contacto.html" class="cta-button">Contáctame</a>
-        </div>
-    </nav>
+<nav class="nav" data-js="nav">
+  <div class="nav-container">
+    <div class="logo">David Peñaloza.</div>
+
+    <!-- Toggle 100% CSS -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden>
+    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">☰</label>
+
+    <!-- Fondo (clic para cerrar) -->
+    <label for="nav-toggle" class="nav-backdrop"></label>
+
+    <!-- Drawer -->
+    <div class="nav-drawer">
+      <ul id="primary-menu" class="nav-links">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/portafolio-web.html">Diseño web</a></li>
+        <li><a href="/logofolio.html">Logofolio</a></li>
+        <li><a href="/rss.html">RSS</a></li>
+        <li><a href="/deliriomedia.html">Delirio media</a></li>
+
+        <!-- ✅ Enlace solo para mobile -->
+        <li class="cta-mobile"><a href="/contacto.html">Contacto</a></li>
+      </ul>
+
+      <!-- ✅ Botón solo para desktop -->
+      <a href="/contacto.html" class="cta-button">Contáctame</a>
+    </div>
+  </div>
+</nav>
+
+
+
 
     <!-- Sección Hero -->
     <section id="hero" class="hero">
@@ -155,6 +174,38 @@
           </div>
     </div>
 </section>
+
+
+
+<div class="marquee-bleed">
+  <!-- Cambia la velocidad aquí: 12s = lento | 6s = medio | 3s = rápido -->
+  <div class="marquee" style="--speed: 5s;">
+    <ul class="marquee__track">
+      <li class="marquee__item">Diseño web</li>
+      <li class="marquee__item">Diseño de RSS</li>
+      <li class="marquee__item">Edición de video</li>
+      <li class="marquee__item">Branding</li>
+      <!-- agrega más ítems si quieres -->
+      <!-- <li class="marquee__item">Promos</li> -->
+      <!-- <li class="marquee__item">Eventos</li> -->
+    </ul>
+    <!-- Duplicado para loop continuo -->
+    <ul class="marquee__track marquee__track--dup" aria-hidden="true">
+      <li class="marquee__item">Diseño web</li>
+      <li class="marquee__item">Diseño de RSS</li>
+      <li class="marquee__item">Edición de video</li>
+      <li class="marquee__item">Branding</li>
+      <!-- mismos ítems que arriba -->
+      <!-- <li class="marquee__item">Promos</li> -->
+      <!-- <li class="marquee__item">Eventos</li> -->
+    </ul>
+  </div>
+</div>
+
+
+
+
+
 
 
 <!-- Sección Proyectos -->
@@ -409,7 +460,7 @@
 
 
 
-    <!-- aquí empieza el script 1-->
+    <!-- aquí empieza el script-->
     <script src="script.js"></script>
 
 </body>
