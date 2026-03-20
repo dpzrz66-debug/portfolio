@@ -10,422 +10,243 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>David Peñaloza - Portafolio</title>
 </head>
+
 <body>
-<nav class="nav" data-js="nav">
-  <div class="nav-container">
-    <div class="logo">David Peñaloza.</div>
-
-    <!-- Toggle 100% CSS -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden>
-    <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">☰</label>
-
-    <!-- Fondo (clic para cerrar) -->
-    <label for="nav-toggle" class="nav-backdrop"></label>
-
-    <!-- Drawer -->
-    <div class="nav-drawer">
-      <ul id="primary-menu" class="nav-links">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/portafolio-web.html">Diseño web</a></li>
-        <li><a href="/logofolio.html">Logofolio</a></li>
-        <li><a href="/rss.html">RSS</a></li>
-        <li><a href="/deliriomedia.html">Delirio media</a></li>
-
-        <!-- ✅ Enlace solo para mobile -->
-        <li class="cta-mobile"><a href="/contacto.html">Contacto</a></li>
-      </ul>
-
-      <!-- ✅ Botón solo para desktop -->
-      <a href="/contacto.html" class="cta-button">Contáctame</a>
-    </div>
-  </div>
-</nav>
-
-
-
-
-    <!-- Sección Hero -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <h1>Hola, soy David.</h1>
-            <p>
-                Diseño y desarrollo experiencias digitales que
-                combinan estética, funcionalidad y estrategia.
-            </p>
-            <a href="/portafolio-web.html" class="cta-button">Ver portafolio</a>
-        </div>
-    </section>
-<div class="stack-container">
- <!-- Sección About -->
-<section id="about" class="about">
-    <h2>Sobre mi</h2>
-    <div class="about-content" style="display: flex; gap: 20px; align-items: flex-start;">
-        <div class="about-text" style="flex: 1;">
-            <p>
-                Comunicologo, con enfoque en diseño gráfico y web egresado de la
-                universidad UniverMilenium en Toluca, Estado de México.<br />
-                Me apasionan los retos, las nuevas experiencias y transformar ideas
-                en soluciones visuales con propósito.<br />
-            </p>
-            <div class="software">
-                <div class="software-item">
-                    <span class="software-icon">
-                        <!-- Icono Illustrator -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-adobe-illustrator">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M3 12c0 -4.243 0 -6.364 1.318 -7.682s3.44 -1.318 7.682 -1.318s6.364 0 7.682 1.318s1.318 3.44 1.318 7.682s0 6.364 -1.318 7.682s-3.44 1.318 -7.682 1.318s-6.364 0 -7.682 -1.318s-1.318 -3.44 -1.318 -7.682" />
-                            <path
-                                d="M12.947 15.79l-.82 -2.653m-4.864 2.652l.82 -2.652m0 0l.687 -2.218c.558 -1.806 .838 -2.708 1.335 -2.708c.498 0 .777 .902 1.336 2.708l.686 2.218m-4.043 0h4.043" />
-                            <path d="M15.789 15.789v-4.736" />
-                            <path d="M15.789 8.684v-.473" />
-                        </svg>
-                    </span>
-
-                    <span class="software-item-label">Adobe Illustrator</span>
-                </div>
-
-                <div class="software-item">
-                    <span class="software-icon">
-                        <!-- Icono Photoshop -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-adobe-photoshop">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M3 12c0 -4.243 0 -6.364 1.318 -7.682s3.44 -1.318 7.682 -1.318s6.364 0 7.682 1.318s1.318 3.44 1.318 7.682s0 6.364 -1.318 7.682s-3.44 1.318 -7.682 1.318s-6.364 0 -7.682 -1.318s-1.318 -3.44 -1.318 -7.682" />
-                            <path
-                                d="M6.79 15.79v-3.79m0 0v-2.724c0 -.11 0 -.165 .004 -.211c.044 -.45 .4 -.806 .85 -.85c.046 -.004 .101 -.004 .211 -.004h1.303a1.895 1.895 0 1 1 0 3.789z" />
-                            <path
-                                d="M17.178 11.263c-.164 -.659 -.935 -1.158 -1.862 -1.158c-1.047 0 -1.895 .637 -1.895 1.421c0 .785 .848 1.421 1.895 1.421c1.046 0 1.895 .637 1.895 1.421c0 .785 -.849 1.421 -1.895 1.421c-.93 0 -1.704 -.502 -1.864 -1.165" />
-                        </svg>
-                    </span>
-                    <span class="software-item-label">Adobe Photoshop</span>
-                </div>
-                <div class="software-item">
-                    <span class="software-icon">
-                        <!-- Icono Wordpress -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-wordpress">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M9.5 9h3" />
-                            <path d="M4 9h2.5" />
-                            <path d="M11 9l3 11l4 -9" />
-                            <path d="M5.5 9l3.5 11l3 -7" />
-                            <path
-                                d="M18 11c.177 -.528 1 -1.364 1 -2.5c0 -1.78 -.776 -2.5 -1.875 -2.5c-.898 0 -1.125 .812 -1.125 1.429c0 1.83 2 2.058 2 3.571z" />
-                            <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-                        </svg>
-                    </span>
-                    <span class="software-item-label">Wordpress</span>
-                </div>
-            </div>
-
-            <div class="software">
-                <div class="software-item">
-                    <span class="software-icon">
-                        <!-- Icono Premiere -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-brand-adobe-premier">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path
-                                d="M3 12c0 -4.243 0 -6.364 1.318 -7.682s3.44 -1.318 7.682 -1.318s6.364 0 7.682 1.318s1.318 3.44 1.318 7.682s0 6.364 -1.318 7.682s-3.44 1.318 -7.682 1.318s-6.364 0 -7.682 -1.318s-1.318 -3.44 -1.318 -7.682" />
-                            <path d="M7.263 15.79v-3.79m0 0v-3.248c0 -.335 .222 -.541 .542 -.541h1.353a1.895 1.895 0 1 1 0 3.789z" />
-                            <path d="M13.895 10.579v1.895m0 0v3.315m0 -3.315c.531 -.709 1.026 -1.592 1.894 -1.832q .22 -.062 .474 -.063" />
-                        </svg>
-                    </span>
-                    <span class="software-item-label">Adobe Premiere</span>
-                </div>
-
-                <div class="software-item">
-                    <span class="software-icon">
-                        <!-- Icono CSS -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-css">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
-                            <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4" />
-                            <path d="M8 16.5a1.5 1.5 0 0 0 -3 0v3a1.5 1.5 0 0 0 3 0" />
-                            <path d="M11 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
-                            <path d="M17 20.25c0 .414 .336 .75 .75 .75h1.25a1 1 0 0 0 1 -1v-1a1 1 0 0 0 -1 -1h-1a1 1 0 0 1 -1 -1v-1a1 1 0 0 1 1 -1h1.25a.75 .75 0 0 1 .75 .75" />
-                        </svg>
-                    </span>
-                    <span class="software-item-label">CSS</span>
-                </div>
+    <nav class="nav" data-js="nav">
+        <div class="nav-container">
+            <div class="logo">David Peñaloza.</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden>
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">☰</label>
+            <label for="nav-toggle" class="nav-backdrop"></label>
+            <div class="nav-drawer">
+                <ul id="primary-menu" class="nav-links">
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/proyectos.html">Proyectos</a></li>
+                    <li><a href="/deliriomedia.html">Delirio media</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <div class="about-visual" style="flex: 1; text-align: center;">
-            <img src="/media/sobre-mi-foto.jpg" alt="Foto sobre mí" style="max-width: 100%; border-radius: 15px;" />
-          </div>
+<!-- Sección Hero -->
+<section id="hero" class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">
+  <span id="typeHero"></span>
+        </h1>
+
+        <div class="hero-bottom">
+            <p class="hero-description">
+                Trabajo en la intersección entre diseño, producto y desarrollo.
+                Construyo interfaces claras, sistemas visuales sólidos
+                y experiencias que se sienten bien desde el primer clic.
+            </p>
+
+            <a href="mailto:dpzrz66@gmail.com" class="hero-contact">
+                Hablemos →
+            </a>
+        </div>
     </div>
 </section>
 
+    <div class="stack-container">
+ <section id="about" class="about about-editorial">
+    <div class="about-editorial__grid">
+
+        <div class="about-editorial__main">
+            <h2 class="about-editorial__title">Sobre mí</h2>
+
+            <div class="about-editorial__text">
+                <p>
+                    Comunicólogo con enfoque en diseño gráfico y web, egresado de la
+                    Universidad UniverMilenium en Toluca, Estado de México.
+                </p>
+
+                <p>
+                    Me apasionan los retos, las nuevas experiencias y transformar ideas
+                    en soluciones visuales con propósito.
+                </p>
+
+                <p>
+                    Domino herramientas de la suite de Adobe como Illustrator, Photoshop
+                    y Premiere, además de WordPress y Shopify.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-editorial__side">
+            <div class="about-orbit">
+                <svg class="about-orbit__text" viewBox="0 0 300 300" aria-hidden="true">
+                    <defs>
+                        <path id="about-circle-path" d="M150,150
+                            m-108,0
+                            a108,108 0 1,1 216,0
+                            a108,108 0 1,1 -216,0" />
+                    </defs>
+                    <text>
+                        <textPath href="#about-circle-path" startOffset="0%">
+                            DISEÑO HECHO EN MÉXICO • DISEÑO HECHO EN MÉXICO •
+                        </textPath>
+                    </text>
+                </svg>
+
+                <div class="about-orbit__center">
+                    <!-- Reemplaza este bloque por tu SVG cuando lo tengas -->
+                    <div class="about-orbit__placeholder">
+                        <span>SVG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+        </section>
+
+        <div class="matter-box" id="matterBox">
+            <img class="dm-matter-elem-pill" src="media/pill-web-design-blanca.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-branding-blanca.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-social-media-design.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-ux-ui.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-video.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-seo.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-x.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-ardilla.svg" alt="">
+            <img class="dm-matter-elem-pill" src="media/pill-flecha.svg" alt="">
+        </div>
+
+        <!-- Sección Proyectos -->
+        <section id="proyectos" class="proyectos">
+            <h2>Proyectos destacados</h2>
+        </section>
+
+        <!-- aquí andan las cards de proyectos -->
+        <section class="proyectos-grid">
+            <div class="proyecto-card">
+                <div class="proyecto-placeholder">
+                    <img class="proyecto-placeholder" src="media/zurbana-mockup-home.png">
+                </div>
+                <div class="proyecto-content">
+                    <h3>Zurbana</h3>
+                    <p>Agencia de Marketing</p>
+                    <div class="proyecto-tech">
+                        <span class="tech-tag">Diseño de interacción</span>
+                        <span class="tech-tag">Desarrollo web</span>
+                        <span class="tech-tag">Wordpress</span>
+                    </div>
+                    <a class="proyecto-link" href="https://grillup.com.mx/" target="_blank"
+                        rel="noopener noreferrer">Ver proyecto →</a>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <div class="proyecto-placeholder">
+                    <img class="proyecto-placeholder" src="media/la-brujeria-web-mock-1.png">
+                </div>
+                <div class="proyecto-content">
+                    <h3>La Brujería</h3>
+                    <p>Productos cosméticos</p>
+                    <div class="proyecto-tech">
+                        <span class="tech-tag">E-commerce</span>
+                        <span class="tech-tag">Diseño web</span>
+                        <span class="tech-tag">Shopify</span>
+                        <span class="tech-tag">Social media design</span>
+                    </div>
+                    <a class="proyecto-link" href="/la-brujeria.html" target="_blank"
+                        rel="noopener noreferrer">Ver proyecto →</a>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <div class="proyecto-placeholder">
+                    <img class="proyecto-placeholder" src="media/maderas-estufadas-website-portfolio.png">
+                </div>
+                <div class="proyecto-content">
+                    <h3>Maderas estufadas de Durango</h3>
+                    <p>Servicios de maderas estufadas en Durango.</p>
+                    <div class="proyecto-tech">
+                        <span class="tech-tag">Diseño web</span>
+                        <span class="tech-tag">Maquetación web</span>
+                        <span class="tech-tag">Branding</span>
+                    </div>
+                    <a class="proyecto-link" href="/maderas-estufadas.html" target="_blank"
+                        rel="noopener noreferrer">Ver proyecto →</a>
+                </div>
+            </div>
+
+            <div class="proyecto-card">
+                <div class="proyecto-placeholder">
+                    <img class="proyecto-placeholder" src="media/impex-web-portfolio-mock-1.png">
+                </div>
+                <div class="proyecto-content">
+                    <h3>Impex Forwarders</h3>
+                    <p>Logística internacional en México.</p>
+                    <div class="proyecto-tech">
+                        <span class="tech-tag">Diseño web</span>
+                        <span class="tech-tag">Maquetación web</span>
+                    </div>
+                    <a class="proyecto-link" href="/impex-forwarders.html" target="_blank"
+                        rel="noopener noreferrer">Ver proyecto →</a>
+                </div>
+            </div>
+        </section>
 
 
-<div class="marquee-bleed">
-  <!-- Cambia la velocidad aquí: 12s = lento | 6s = medio | 3s = rápido -->
-  <div class="marquee" style="--speed: 5s;">
-    <ul class="marquee__track">
-      <li class="marquee__item">Diseño web</li>
-      <li class="marquee__item">Diseño de RSS</li>
-      <li class="marquee__item">Edición de video</li>
-      <li class="marquee__item">Branding</li>
-      <!-- agrega más ítems si quieres -->
-      <!-- <li class="marquee__item">Promos</li> -->
-      <!-- <li class="marquee__item">Eventos</li> -->
-    </ul>
-    <!-- Duplicado para loop continuo -->
-    <ul class="marquee__track marquee__track--dup" aria-hidden="true">
-      <li class="marquee__item">Diseño web</li>
-      <li class="marquee__item">Diseño de RSS</li>
-      <li class="marquee__item">Edición de video</li>
-      <li class="marquee__item">Branding</li>
-      <!-- mismos ítems que arriba -->
-      <!-- <li class="marquee__item">Promos</li> -->
-      <!-- <li class="marquee__item">Eventos</li> -->
-    </ul>
+<section class="portfolio-self">
+
+  <div class="portfolio-self__inner">
+
+    <div class="portfolio-self__divider"></div>
+
+    <h2 class="portfolio-self__title">
+      Sí, este portafolio<br>
+      también es un proyecto destacado.
+    </h2>
+
+    <div class="portfolio-self__badge">
+
+      <div class="portfolio-self__badge-ring"></div>
+
+      <div class="portfolio-self__badge-core">
+
+        <div class="portfolio-self__counter">
+          <span id="xpCounter">0</span>
+          <small>años de experiencia</small>
+        </div>
+
+        <p class="portfolio-self__fun">
+          rompiendo layouts,<br>
+          peleándome con CSS<br>
+          y diseñando cosas<br>
+          que sí funcionan
+        </p>
+
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-
-
-
-
-
-
-<!-- Sección Proyectos -->
-<section id="proyectos" class="proyectos">
-    <h2>Proyectos destacados</h2>
-    <p class="proyectos-subtitle">
-        Selección de proyectos que realicé durante el año de 2024 hasta la actualidad.
-    </p>
 </section>
 
 
-
-
-<!--aquí andan las cards de proyectos -->
-<section class=" proyectos-grid">
-            <div class="proyecto-card">
-                <div class="proyecto-placeholder">
-                    <img class="proyecto-placeholder" src="media/grillup-mockup-portafolio-3.jpg">
-                </div>
-                <div class="proyecto-content">
-                <h3>Grillup</h3>
-                <p>Suplementos alimenticios.</p>
-                <div class="proyecto-tech">
-                    <span class="tech-tag">E-commerce</span>
-                    <span class="tech-tag">Diseño web</span>
-                     <span class="tech-tag">Wordpress</span>
-                </div>
-                <button class="btn-popup proyecto-link"
-                data-modal="modal1"
-                data-title="Grillup"
-                data-desc="Diseño, desarrollo y maquetación web"
-                data-images="media/grillup-mockup-portafolio-3.jpg, media/grillup-telefono-mockup.jpg"
-                data-link="https://grillup.com.mx/"
-                >Ver proyecto →</button>
-                </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-placeholder">
-                    <img class="proyecto-placeholder" src="media/micronovax-mockup-portafolio-3.jpg">
-                </div>
-                <div class="proyecto-content">
-                <h3>Micronovax</h3>
-                <p>Productos de cuidado agricola.</p>
-                <div class="proyecto-tech">
-                    <span class="tech-tag">E-commerce</span>
-                    <span class="tech-tag">Diseño web</span>
-                     <span class="tech-tag">Wordpress</span>
-                </div>
-                <button class="btn-popup proyecto-link"
-                data-modal="modal2"
-                data-title="Micronovax"
-                data-desc="Diseño, desarrollo y maquetación web"
-                data-images="media/micronovax-mockup-portafolio-3.jpg, media/micronovax-telefono-mockup.jpg"
-                 data-link="https://micronovax.com.mx/"
-                >Ver proyecto →</button>
-                </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-placeholder">
-                    <img class="proyecto-placeholder" src="media/sotres-mockup-portafolio-3.jpg">
-                </div>
-                <div class="proyecto-content">
-                <h3>Grupo Sotres</h3>
-                <p>Aseguradora.</p>
-                <div class="proyecto-tech">
-                    <span class="tech-tag">Diseño web</span>
-                    <span class="tech-tag">Maquetación web</span>
-                    <span class="tech-tag">Wordpress</span>
-                </div>
-                <button class="btn-popup proyecto-link"
-                data-modal="modal3"
-                data-title="Grupo Sotres"
-                data-desc="Diseño, desarrollo y maquetación de sitio web"
-                data-images="media/sotres-mockup-portafolio-3.jpg, media/sotres-telefono-mockup.jpg"
-                data-link="https://gruposotres.com/"
-                >Ver proyecto →</button>
-                </div>
-            </div>
-            <div class="proyecto-card">
-                <div class="proyecto-placeholder">
-                    <img class="proyecto-placeholder" src="media/armi-mockup-portafolio-3.jpg">
-                </div>
-                <div class="proyecto-content">
-                <h3>ARMI México</h3>
-                <p>Remodelación de inmuebles en México.</p>
-                <div class="proyecto-tech">
-                    <span class="tech-tag">Diseño web</span>
-                    <span class="tech-tag">Maquetación web</span>
-                    <span class="tech-tag">Wordpress</span>
-                </div>
-                <button class="btn-popup proyecto-link"
-                data-modal="modal4"
-                data-title="ARMI México"
-                data-desc="Diseño, desarrollo y maquetación de sitio web"
-                data-images="media/armi-mockup-portafolio-3.jpg, media/armi-telefono-mockup.jpg"
-                data-link="https://armimexico.com/"
-                >Ver proyecto →</button>
-                </div>
-    </section>
-
-
-
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="footer-bottom">
-            <p>&copy; 2025 Mi Portafolio. Todos los derechos reservados.</p>
+    <!-- FOOTER -->
+    <footer class="project-footer pl-footer reveal reveal--fade">
+        <div class="project-footer__title">Let's get in touch</div>
+        <div class="project-footer__socials">
+            <a href="https://www.linkedin.com/in/david-pe%C3%B1aloza-92a245201/"
+               target="_blank" rel="noopener noreferrer" class="project-chip">LinkedIn</a>
+            <a href="/cdn-cgi/l/email-protection#a7c3d7ddd5dd9191e7c0cac6cecb89c4c8ca" class="project-chip">Enviar mail</a>
         </div>
+        <div class="project-footer__meta">David Peñaloza</div>
     </footer>
-</div>
-
-
-
-
-
-
-<!-- ✅ Modal 1 -->
-<!-- ====== modal1.html ====== -->
-<div id="modal1" class="modal" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <!-- cambié a button para mejor accesibilidad -->
-    <button class="close-btn" aria-label="Cerrar">&times;</button>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-inner"></div>
-      <button class="prev" aria-label="Anterior">&#10094;</button>
-      <button class="next" aria-label="Siguiente">&#10095;</button>
-    </div>
-
-    <div class="modal-text">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-description">Descripción</p>
-      <div class="modal-link-wrapper" style="display:none;">
-        <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-<!-- ✅ Modal 2 -->
-<div id="modal2" class="modal" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <!-- cambié a button para mejor accesibilidad -->
-    <button class="close-btn" aria-label="Cerrar">&times;</button>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-inner"></div>
-      <button class="prev" aria-label="Anterior">&#10094;</button>
-      <button class="next" aria-label="Siguiente">&#10095;</button>
-    </div>
-
-    <div class="modal-text">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-description">Descripción</p>
-      <div class="modal-link-wrapper" style="display:none;">
-        <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- ✅ Modal 3 -->
-<div id="modal3" class="modal" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <!-- cambié a button para mejor accesibilidad -->
-    <button class="close-btn" aria-label="Cerrar">&times;</button>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-inner"></div>
-      <button class="prev" aria-label="Anterior">&#10094;</button>
-      <button class="next" aria-label="Siguiente">&#10095;</button>
-    </div>
-
-    <div class="modal-text">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-description">Descripción</p>
-      <div class="modal-link-wrapper" style="display:none;">
-        <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- ✅ Modal 4 -->
-<div id="modal4" class="modal" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <!-- cambié a button para mejor accesibilidad -->
-    <button class="close-btn" aria-label="Cerrar">&times;</button>
-
-    <div class="carousel-wrapper">
-      <div class="carousel-inner"></div>
-      <button class="prev" aria-label="Anterior">&#10094;</button>
-      <button class="next" aria-label="Siguiente">&#10095;</button>
-    </div>
-
-    <div class="modal-text">
-      <h3 id="modal-title">Título</h3>
-      <p id="modal-description">Descripción</p>
-      <div class="modal-link-wrapper" style="display:none;">
-        <span class="modal-link-title">Visitar sitio web:</span>
-        <a id="modal-link" href="#" target="_blank" class="modal-link"> Abrir enlace</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
     <!-- aquí empieza el script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
     <script src="script.js"></script>
-
 </body>
 
 </html>

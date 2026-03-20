@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+       <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gsoftware-itemic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Jost:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet" />
+    <title>David Peñaloza - Portafolio Web</title>
+</head>
+
+<body>
+    <nav class="nav" data-js="nav">
+        <div class="nav-container">
+            <div class="logo">David Peñaloza.</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden>
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">☰</label>
+            <label for="nav-toggle" class="nav-backdrop"></label>
+            <div class="nav-drawer">
+                <ul id="primary-menu" class="nav-links">
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/proyectos.html">Proyectos</a></li>
+                    <li><a href="/deliriomedia.html">Delirio media</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<section class="project-template">
+
+  <!-- HERO -->
+  <header class="project-hero">
+    <div class="project-hero__title reveal reveal--up delay-1">
+      <h1>ZURBANA</h1>
+    </div>
+
+    <div class="project-hero__overview reveal reveal--up delay-2">
+      <span class="project-label">Overview</span>
+      <p>
+        Implementación de un sitio web para una agencia de marketing en USA.
+      </p>
+    </div>
+  </header>
+
+  <!-- HERO MEDIA -->
+  <section class="project-media-grid">
+    <figure class="project-media-card reveal reveal--up delay-2">
+      <img src="media/zurbana-mockup-home.png" alt="Preview principal del proyecto">
+    </figure>
+
+    <figure class="project-media-card reveal reveal--up delay-3">
+      <img src="media/zurbanas-mockup-2.png" alt="Preview secundario del proyecto">
+    </figure>
+  </section>
+
+  <!-- META -->
+  <section class="project-meta reveal reveal--fade delay-3">
+    <div class="project-meta__arrow">↳</div>
+
+    <div class="project-meta__item">
+      <span class="project-label">Año</span>
+      <p>2025</p>
+    </div>
+
+    <div class="project-meta__item">
+      <span class="project-label">Rol</span>
+      <p>Web Developer<br>Interaction Designer</p>
+    </div>
+
+    <div class="project-meta__item">
+      <span class="project-label">Servicios</span>
+      <p>Desarrollo web<br>Maquetación web<br>Diseño de interacción<br>Diseño de assets<br>Wordpress</p>
+    </div>
+  </section>
+
+  <!-- CONTENT BLOCK -->
+  <section class="project-content-grid">
+    <div class="project-content-grid__title reveal reveal--up">
+      <h2>Acerca del proyecto</h2>
+    </div>
+
+    <div class="project-content-grid__text reveal reveal--up delay-1">
+      <h3>Goal</h3>
+      <p>
+ El objetivo del proyecto fue diseñar y desarrollar una página web altamente interactiva que respondiera a los requerimientos específicos de experiencia planteados por el cliente, priorizando una navegación dinámica, atractiva y memorable para el usuario.<br><br>
+
+Para lograrlo, se conceptualizó desde cero la arquitectura de interacción, definiendo flujos, comportamientos y microinteracciones que transformaran el sitio en una experiencia más lúdica y envolvente, alejándose de esquemas tradicionales y estáticos.<br><br>
+
+Como parte del proceso de diseño, se desarrolló el wireframe completo en Figma, estableciendo una base clara de estructura, jerarquía visual y lógica de navegación, lo que permitió validar la propuesta antes de su implementación.<br><br>
+
+Adicionalmente, se generaron distintos assets visuales a partir del branding de la marca, incluyendo videos e iconografía personalizada, con el objetivo de reforzar la identidad visual y aportar riqueza gráfica a la experiencia digital.<br><br>
+
+Finalmente, el proyecto fue implementado en WordPress, adaptando el diseño a un entorno funcional y escalable, asegurando que la experiencia interactiva se mantuviera consistente en la ejecución final del sitio.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+<!-- GALLERY -->
+<section class="project-gallery">
+  <figure class="project-gallery__item reveal reveal--up">
+    <video src="media/zurbana-interaccion-f.mp4" autoplay loop muted playsinline></video>
+  </figure>
+
+  <figure class="project-gallery__item reveal reveal--up delay-1">
+    <video src="media/zurbana-interaccion-2.mp4" autoplay loop muted playsinline></video>
+  </figure>
+</section>
+
+  <!-- BOTTOM NAV -->
+  <section class="project-bottom-nav reveal reveal--fade delay-2">
+    <a href="/index.html" class="project-bottom-nav__link">← Regresar a proyectos</a>
+    <a href="https://agenciazurbana.us/" class="project-bottom-nav__link">Visitar sitio →</a>
+  </section>
+
+  <!-- FOOTER CONTACT -->
+<footer class="project-footer reveal reveal--fade delay-3">
+  <div class="project-footer__title">Let’s get in touch</div>
+
+  <div class="project-footer__socials">
+    <a href="https://www.linkedin.com/in/david-pe%C3%B1aloza-92a245201/" target="_blank" rel="noopener noreferrer" class="project-chip">LinkedIn</a>
+    <a href="mailto:dpzrz66@gmail.com" class="project-chip">Enviar mail</a>
+  </div>
+
+  <div class="project-footer__meta">David Peñaloza</div>
+</footer>
+
+</section>

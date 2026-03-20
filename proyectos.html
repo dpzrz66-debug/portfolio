@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="proyectos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+    <title>Proyectos — David Peñaloza</title>
+</head>
+
+<body>
+
+    <nav class="nav" data-js="nav">
+        <div class="nav-container">
+            <div class="logo">David Peñaloza.</div>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" hidden>
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">☰</label>
+            <label for="nav-toggle" class="nav-backdrop"></label>
+            <div class="nav-drawer">
+                <ul id="primary-menu" class="nav-links">
+                    <li><a href="/index.html">Inicio</a></li>
+                    <li><a href="/proyectos.html">Proyectos</a></li>
+                    <li><a href="/deliriomedia.html">Delirio media</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header class="pl-header">
+        <p class="pl-header__eyebrow reveal reveal--fade">Trabajo seleccionado</p>
+        <h1 class="pl-header__title reveal reveal--up">Proyectos</h1>
+        <div class="pl-header__meta reveal reveal--fade delay-1">
+            <span class="pl-header__count" id="plCount">— proyectos</span>
+            <span class="pl-header__year">2024 – 2025</span>
+        </div>
+        <div class="pl-header__line reveal reveal--fade delay-2"></div>
+    </header>
+
+    <!-- FILTROS -->
+    <div class="pl-filters reveal reveal--fade delay-2">
+        <button class="pl-filter is-active" data-filter="all">Todos</button>
+        <button class="pl-filter" data-filter="web">Web</button>
+        <button class="pl-filter" data-filter="branding">Branding</button>
+        <button class="pl-filter" data-filter="ecommerce">E-commerce</button>
+        <button class="pl-filter" data-filter="social">Social media</button>
+    </div>
+
+    <!-- GRID ASIMÉTRICO -->
+    <main class="pl-grid" id="plGrid">
+
+        <a href="/zurbana.html" class="pl-card pl-card--wide" data-tags="web">
+            <div class="pl-card__img-wrap">
+                <img src="media/zurbana-mockup-home.png" alt="Zurbana">
+            </div>
+            <div class="pl-card__overlay">
+                <div class="pl-card__overlay-inner">
+                    <h2 class="pl-card__name">Zurbana</h2>
+                    <p class="pl-card__desc">Agencia de marketing · USA</p>
+                    <div class="pl-card__chips">
+                        <span>Diseño web</span><span>Wordpress</span><span>Interacción</span>
+                    </div>
+                </div>
+                <span class="pl-card__arrow">→</span>
+            </div>
+        </a>
+
+        <a href="/la-brujeria.html" class="pl-card" data-tags="ecommerce social web">
+            <div class="pl-card__img-wrap">
+                <img src="media/la-brujeria-web-mock-1.png" alt="La Brujería">
+            </div>
+            <div class="pl-card__overlay">
+                <div class="pl-card__overlay-inner">
+                    <h2 class="pl-card__name">La Brujería</h2>
+                    <p class="pl-card__desc">Cosmética · Islandia</p>
+                    <div class="pl-card__chips">
+                        <span>Shopify</span><span>E-commerce</span><span>Social media</span>
+                    </div>
+                </div>
+                <span class="pl-card__arrow">→</span>
+            </div>
+        </a>
+
+        <a href="/maderas-estufadas.html" class="pl-card" data-tags="web branding">
+            <div class="pl-card__img-wrap">
+                <img src="media/maderas-estufadas-website-portfolio.png" alt="Maderas Estufadas">
+            </div>
+            <div class="pl-card__overlay">
+                <div class="pl-card__overlay-inner">
+                    <h2 class="pl-card__name">Maderas Estufadas</h2>
+                    <p class="pl-card__desc">Servicios · Durango</p>
+                    <div class="pl-card__chips">
+                        <span>Diseño web</span><span>Branding</span><span>Maquetación</span>
+                    </div>
+                </div>
+                <span class="pl-card__arrow">→</span>
+            </div>
+        </a>
+
+        <a href="/impex-forwarders.html" class="pl-card pl-card--wide" data-tags="web">
+            <div class="pl-card__img-wrap">
+                <img src="media/impex-web-portfolio-mock-1.png" alt="Impex Forwarders">
+            </div>
+            <div class="pl-card__overlay">
+                <div class="pl-card__overlay-inner">
+                    <h2 class="pl-card__name">Impex Forwarders</h2>
+                    <p class="pl-card__desc">Logística internacional · México</p>
+                    <div class="pl-card__chips">
+                        <span>Diseño web</span><span>Maquetación</span>
+                    </div>
+                </div>
+                <span class="pl-card__arrow">→</span>
+            </div>
+        </a>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="project-footer pl-footer reveal reveal--fade">
+        <div class="project-footer__title">Let's get in touch</div>
+        <div class="project-footer__socials">
+            <a href="https://www.linkedin.com/in/david-pe%C3%B1aloza-92a245201/"
+               target="_blank" rel="noopener noreferrer" class="project-chip">LinkedIn</a>
+            <a href="/cdn-cgi/l/email-protection#a7c3d7ddd5dd9191e7c0cac6cecb89c4c8ca" class="project-chip">Enviar mail</a>
+        </div>
+        <div class="project-footer__meta">David Peñaloza</div>
+    </footer>
+
+    <script>
+    (() => {
+        const countEl = document.getElementById('plCount');
+        const cards   = document.querySelectorAll('.pl-card');
+        const filters = document.querySelectorAll('.pl-filter');
+
+        /* Contador inicial */
+        if (countEl && cards.length) {
+            countEl.textContent = cards.length + ' proyectos';
+        }
+
+        if (!filters.length || !cards.length) return;
+
+        filters.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                const filter = btn.getAttribute('data-filter');
+
+                /* Botón activo */
+                filters.forEach(function(f) { f.classList.remove('is-active'); });
+                btn.classList.add('is-active');
+
+                /* Mostrar / ocultar */
+                let visible = 0;
+                cards.forEach(function(card) {
+                    const tags = card.getAttribute('data-tags') || '';
+                    const show = filter === 'all' || tags.split(' ').indexOf(filter) !== -1;
+
+                    if (show) {
+                        card.style.display = '';
+                        visible++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                /* Actualizar contador */
+                if (countEl) {
+                    countEl.textContent = visible + (visible !== 1 ? ' proyectos' : ' proyecto');
+                }
+            });
+        });
+    })();
+    </script>
