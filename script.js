@@ -50,101 +50,6 @@
 })();
 
 
-/* ====== nav toggle 1 ====== */
-(function () {
-  const nav = document.querySelector('header nav') || document.querySelector('.site-header nav') || document.querySelector('nav');
-  const header = document.querySelector('header, .site-header');
-  if (!nav || !header) return;
-
-  if (!document.querySelector('.nav-toggle')) {
-    if (!nav.id) nav.id = 'site-nav';
-
-    const btn = document.createElement('button');
-    btn.className = 'nav-toggle';
-    btn.setAttribute('aria-controls', nav.id);
-    btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-label', 'Abrir menú');
-    btn.textContent = '☰';
-
-    const container = header.querySelector('.container') || header;
-    container.appendChild(btn);
-
-    function syncTop() {
-      const h = header.getBoundingClientRect().height;
-      nav.style.top = h + 'px';
-    }
-
-    function inheritBg() {
-      const cs = getComputedStyle(header);
-      const bg = cs.background || cs.backgroundColor || '';
-      if (bg) nav.style.background = bg;
-    }
-
-    function openMenu() {
-      nav.classList.add('is-open');
-      btn.setAttribute('aria-expanded', 'true');
-      document.body.classList.add('menu-open');
-      syncTop();
-      inheritBg();
-    }
-
-    function closeMenu() {
-      nav.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.classList.remove('menu-open');
-    }
-
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      expanded ? closeMenu() : openMenu();
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeMenu();
-    });
-
-    document.addEventListener('click', e => {
-      if (!nav.classList.contains('is-open')) return;
-      const inside = nav.contains(e.target) || btn.contains(e.target);
-      if (!inside) closeMenu();
-    });
-
-    nav.addEventListener('click', e => {
-      const a = e.target.closest('a');
-      if (a) closeMenu();
-    });
-
-    window.addEventListener('resize', syncTop, { passive: true });
-    window.addEventListener('load', () => {
-      syncTop();
-      inheritBg();
-    });
-  }
-})();
-
-
-/* ====== nav toggle 2 ====== */
-document.addEventListener('DOMContentLoaded', function () {
-  const nav = document.querySelector('nav[data-js="nav"]');
-  const btn = nav?.querySelector('.nav-toggle');
-  const menu = nav?.querySelector('#primary-menu');
-
-  if (!nav || !btn || !menu) return;
-
-  btn.addEventListener('click', function () {
-    const open = nav.classList.toggle('is-open');
-    btn.setAttribute('aria-expanded', String(open));
-  });
-
-  menu.addEventListener('click', function (e) {
-    if (e.target.closest('a')) {
-      nav.classList.remove('is-open');
-      btn.setAttribute('aria-expanded', 'false');
-    }
-  });
-});
-
-
 /* ====== matter portfolio ====== */
 window.addEventListener('load', function () {
   if (typeof Matter === 'undefined') {
@@ -395,6 +300,7 @@ window.addEventListener('load', function () {
 });
 
 
+/* ====== contador xp ====== */
 const counter = document.getElementById("xpCounter");
 
 if (counter) {
@@ -407,10 +313,7 @@ if (counter) {
     const interval = setInterval(() => {
       value++;
       counter.textContent = value;
-
-      if (value >= target) {
-        clearInterval(interval);
-      }
+      if (value >= target) clearInterval(interval);
     }, 500);
   };
 
@@ -422,27 +325,20 @@ if (counter) {
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.45
-  });
+  }, { threshold: 0.45 });
 
   const section = document.querySelector(".portfolio-self");
-  if (section) {
-    observer.observe(section);
-  }
+  if (section) observer.observe(section);
 }
 
 
-
-
+/* ====== typewriter hero ====== */
 const heroText = "Hola, soy David.";
-
 const heroTarget = document.getElementById("typeHero");
-
 let i = 0;
 
-function typeHero(){
-  if(i < heroText.length){
+function typeHero() {
+  if (i < heroText.length) {
     heroTarget.textContent += heroText.charAt(i);
     i++;
     setTimeout(typeHero, 45);
@@ -454,53 +350,68 @@ window.addEventListener("load", () => {
 });
 
 
-
-
-/* =============================================================================
-   proyectos.js — Filtros + contador
-============================================================================= */
-
+/* ====== filtros proyectos ====== */
 (() => {
-    /* --- Contador de proyectos --- */
-    const countEl = document.getElementById('plCount');
-    const cards   = document.querySelectorAll('.pl-card');
+  const countEl = document.getElementById('plCount');
+  const cards   = document.querySelectorAll('.pl-card');
 
-    if (countEl && cards.length) {
-        countEl.textContent = `${cards.length} proyectos`;
-    }
+  if (countEl && cards.length) {
+    countEl.textContent = `${cards.length} proyectos`;
+  }
 
-    /* --- Filtros --- */
-    const filters = document.querySelectorAll('.pl-filter');
+  const filters = document.querySelectorAll('.pl-filter');
+  if (!filters.length || !cards.length) return;
 
-    if (!filters.length || !cards.length) return;
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
 
-    filters.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const filter = btn.dataset.filter;
+      filters.forEach(f => f.classList.remove('is-active'));
+      btn.classList.add('is-active');
 
-            /* estado activo del botón */
-            filters.forEach(f => f.classList.remove('is-active'));
-            btn.classList.add('is-active');
+      let visible = 0;
 
-            /* mostrar / ocultar cards */
-            let visible = 0;
+      cards.forEach(card => {
+        const tags = card.dataset.tags || '';
+        const show = filter === 'all' || tags.split(' ').indexOf(filter) !== -1;
 
-            cards.forEach(card => {
-                const tags = card.dataset.tags || '';
-                const show = filter === 'all' || tags.includes(filter);
+        if (show) {
+          card.style.display = '';
+          visible++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
 
-                if (show) {
-                    card.classList.remove('is-hidden');
-                    visible++;
-                } else {
-                    card.classList.add('is-hidden');
-                }
-            });
-
-            /* actualizar contador */
-            if (countEl) {
-                countEl.textContent = `${visible} proyecto${visible !== 1 ? 's' : ''}`;
-            }
-        });
+      if (countEl) {
+        countEl.textContent = `${visible} proyecto${visible !== 1 ? 's' : ''}`;
+      }
     });
+  });
+})();
+
+
+/* ====== reloj footer ====== */
+(function () {
+  const timeEl   = document.getElementById('clockTime');
+  const detailEl = document.getElementById('clockDetail');
+  if (!timeEl || !detailEl) return;
+
+  function update() {
+    const now  = new Date();
+    const time = now.toLocaleTimeString('es-MX', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+    const day = now.toLocaleDateString('es-MX', { weekday: 'long' });
+    const tz  = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    timeEl.textContent   = time;
+    detailEl.textContent = day.charAt(0).toUpperCase() + day.slice(1) + ' · ' + tz.replace('_', ' ');
+  }
+
+  update();
+  setInterval(update, 1000);
 })();

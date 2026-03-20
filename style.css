@@ -50,6 +50,12 @@ nav {
     font-weight: normal;
     color: #ffffff;
     text-transform: lowercase;
+    text-decoration: none;
+    transition: opacity 0.25s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
 }
 
 .nav-links {
@@ -185,11 +191,11 @@ nav {
 
 .hero-contact:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.3);
+    background: #1B55C1;
+    border-color: #1B55C1;
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.12),
-        0 12px 35px rgba(0, 0, 0, 0.22);
+        0 12px 35px rgba(27, 85, 193, 0.35);
 }
 
 .stack-container {
@@ -792,15 +798,29 @@ nav {
 }
 
 .project-bottom-nav__link {
-    color: var(--project-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.25s ease, transform 0.25s ease;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.75rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-bottom-nav__link:hover {
-    color: var(--project-text);
-    transform: translateX(2px);
+    background: #1B55C1;
+    border-color: #1B55C1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(27, 85, 193, 0.35);
 }
 
 /* Footer */
@@ -835,19 +855,47 @@ nav {
     text-decoration: none;
     color: var(--project-text);
     background: rgba(255, 255, 255, 0.02);
-    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
 }
 
 .project-chip:hover {
     transform: translateY(-2px);
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.24);
+    background: #1B55C1;
+    border-color: #1B55C1;
+    color: #ffffff;
 }
 
 .project-footer__meta {
     color: var(--project-soft);
     font-size: 0.95rem;
     text-align: right;
+}
+
+/* Reloj del footer */
+.footer-clock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    grid-column: 1 / -1;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 0.5rem;
+}
+
+.footer-clock__time {
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.75);
+    font-variant-numeric: tabular-nums;
+}
+
+.footer-clock__detail {
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: capitalize;
 }
 
 
