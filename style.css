@@ -832,6 +832,13 @@ nav {
     padding-top: 2rem;
 }
 
+/* Footer fuera de project-template (deliriomedia) */
+.project-footer--standalone {
+    padding: 3rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
 .project-footer__title {
     font-size: 1.35rem;
     letter-spacing: -0.03em;
@@ -1573,6 +1580,11 @@ nav {
     .project-footer {
         grid-template-columns: 1fr;
         text-align: left;
+    }
+
+    .project-footer--standalone {
+        padding: 2rem 1.5rem;
+        margin-top: 2rem;
     }
 
     .project-footer__socials { justify-content: flex-start; }
