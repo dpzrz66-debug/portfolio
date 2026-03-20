@@ -14,6 +14,11 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    max-width: 100vw;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 
@@ -360,7 +365,7 @@ nav {
 
 .proyectos h2 {
     margin-bottom: 1.5em;
-    font-size: 110px;
+    font-size: clamp(2.5rem, 10vw, 110px);
     line-height: 0.85;
     letter-spacing: -0.04em;
     font-weight: 700;
@@ -483,11 +488,12 @@ nav {
 
 .portfolio-self__badge {
     position: relative;
-    width: min(320px, 60vw);
+    width: min(320px, 72vw);
     aspect-ratio: 1 / 1;
     margin: 0 auto;
     display: grid;
     place-items: center;
+    flex-shrink: 0;
 }
 
 .portfolio-self__badge-ring {
@@ -496,6 +502,7 @@ nav {
     border: 1px dashed rgba(255, 255, 255, 0.25);
     border-radius: 999px;
     animation: spin 14s linear infinite;
+    flex-shrink: 0;
 }
 
 .portfolio-self__badge-ring::before,
@@ -1159,6 +1166,13 @@ nav {
     .hero-description { max-width: 100%; }
 }
 
+/* --- Matter box en mobile: ocultar (física no funciona bien en touch) --- */
+@media (max-width: 768px) {
+    .matter-box {
+        display: none;
+    }
+}
+
 /* --- About + Project template (1100px) --- */
 @media (max-width: 1100px) {
     .about-editorial { padding: 5rem 2rem; }
@@ -1247,9 +1261,9 @@ nav {
         right: 0;
         height: 100vh;
         width: min(85vw, 360px);
-        background: #194BBE;
-        backdrop-filter: blur(6px);
-        box-shadow: -12px 0 40px rgba(0, 0, 0, 0.35);
+        background: rgba(18, 52, 140, 0.75);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.5);
         transform: translateX(100%);
         transition: transform 0.32s ease;
         padding: 1.25rem;
@@ -1257,17 +1271,40 @@ nav {
         flex-direction: column;
         gap: 1rem;
         z-index: 1001;
+        /* pseudo-element para el blur — evita el bug de iOS con transform */
+        isolation: isolate;
+    }
+
+    .nav-drawer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(40px) saturate(200%);
+        -webkit-backdrop-filter: blur(40px) saturate(200%);
+        z-index: -1;
     }
 
     .nav-drawer .nav-links {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
+        gap: 0.5rem;
+        margin-top: 5rem;
     }
 
     .nav-drawer .nav-links a {
         text-decoration: none;
-        color: #fff;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 1.6rem;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        padding: 0.6rem 0.8rem;
+        border-radius: 10px;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-drawer .nav-links a:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: #ffffff;
     }
 
     .nav-toggle-input:checked ~ .nav-backdrop {
@@ -1340,6 +1377,13 @@ nav {
         font-size: 0.92rem;
     }
 
+    .hero {
+        min-height: 80vh;
+        height: auto;
+        padding: 14rem 2rem 6rem;
+    }
+
+    /* About */
     .about-editorial { padding: 4rem 1rem; }
 
     .about-editorial__title {
@@ -1364,8 +1408,60 @@ nav {
         letter-spacing: 0.14em;
     }
 
-    .proyectos-grid { grid-template-columns: 1fr; }
+    /* Proyectos home */
+    .proyectos {
+        padding: 4rem 1rem;
+        margin-bottom: 0;
+    }
 
+    .proyectos h2 {
+        font-size: clamp(3.5rem, 14vw, 110px);
+        line-height: 1.1;
+        margin-bottom: 0.4em;
+    }
+
+    .proyectos-grid {
+        grid-template-columns: 1fr;
+        margin: 0 0 2rem;
+    }
+
+    /* Portfolio self badge — forzar círculo en mobile */
+    .portfolio-self {
+        padding: 2rem 1rem 4rem;
+    }
+
+    .portfolio-self__title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+        margin-bottom: 2.5rem;
+    }
+
+    .portfolio-self__badge {
+        width: min(280px, 80vw);
+    }
+
+    .portfolio-self__badge-core {
+        padding: 1rem;
+    }
+
+    .portfolio-self__counter span {
+        font-size: 2.2rem;
+    }
+
+    .portfolio-self__counter small {
+        font-size: 0.85rem;
+    }
+
+    .portfolio-self__fun {
+        font-size: 0.78rem;
+    }
+
+    /* Masonry delirio — imágenes más grandes en mobile */
+    .masonry-columns {
+        column-count: 1;
+        margin-top: 6em;
+    }
+
+    /* About general */
     #about { text-align: center; }
 
     #about .about-content {
@@ -1401,7 +1497,7 @@ nav {
 
 /* --- Project template 767px --- */
 @media (max-width: 767px) {
-    .project-template { padding: 1.25rem 1rem 2.5rem; }
+    .project-template { padding: 7rem 1rem 2.5rem; }
 
     .project-hero { gap: 1.5rem; }
 
@@ -1434,4 +1530,39 @@ nav {
     .project-footer__socials { justify-content: flex-start; }
 
     .project-footer__meta { text-align: left; }
+}
+
+/* --- Mobile pequeño 480px --- */
+@media (max-width: 480px) {
+    /* Mobile pequeño 480px */
+    nav {
+        padding: 1.5rem;
+        height: 80px;
+    }
+
+    .hero {
+        padding: 10rem 1.5rem 4rem;
+        min-height: 75vh;
+        height: auto;
+    }
+
+    .hero-title {
+        font-size: clamp(2.8rem, 13vw, 4rem);
+    }
+
+    .about {
+        padding: 3rem 1.5rem;
+    }
+
+    .proyectos {
+        padding: 3rem 1rem;
+    }
+
+    .proyectos-grid {
+        margin: 0 0 2rem;
+        gap: 1rem;
+    }
+
+    .pl-header { padding: 6rem 1rem 1.5rem; }
+    .pl-grid   { padding: 0 1rem 2rem; }
 }
